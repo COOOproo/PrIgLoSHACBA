@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свадебное приглашение</title>
+  <style>
+    body {
+      font-family: 'Ouvality Cyrillic', serif;
+      margin: 0;
+      padding: 0;
+      background: url('photo_5370857600536670397_y.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #1a1a1a;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 60px 20px;
+      background: transparent;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .names {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    .date-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .date-block div {
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    .date-block .day {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .timeline {
+      padding-left: 20px;
+      border-left: none; /* Убрали линию */
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+    }
+
+    .timeline-item time {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .drinks-list label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .date-block {
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h3>ПРИГЛАШЕНИЕ НА СВАДЬБУ</h3>
+    <div class="names">Натали<br/>Андрей</div>
+    <div class="date-block">
+      <div>август</div>
+      <div class="day">29</div>
+      <div>2025</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>ДОРОГИЕ<br/>РОДНЫЕ И ДРУЗЬЯ!</h2>
+    <p style="text-align:center;">
+      С радостью приглашаем Вас на нашу свадьбу!<br/>
+      Мы счастливы объединить наши жизни и хотели бы<br/>
+      поделиться этим с Вами.
+    </p>
+  </section>
+
+  <section>
+    <h2>МЕСТО ПРОВЕДЕНИЯ ТОРЖЕСТВА</h2>
+    <p style="text-align:center;">
+      ЖДЕМ ВАС:<br/>
+      «Петергоф лофт»<br/><br/>
+      ПО АДРЕСУ:<br/>
+      территория Троицкая гора, д. 33
+    </p>
+  </section>
+
+  <section>
+    <h2>ПЛАН ДНЯ</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <time>13:30</time>
+        <div>СБОР ГОСТЕЙ — встречаемся, настраиваемся на весёлую свадьбу, главное не опаздывать.</div>
+      </div>
+      <div class="timeline-item">
+        <time>14:00</time>
+        <div>РЕГИСТРАЦИЯ — немного радостных трогательных формальностей.</div>
+      </div>
+      <div class="timeline-item">
+        <time>15:00</time>
+        <div>БАНКЕТ — время для вкусной еды, развлечений и поздравлений.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>ДРЕСС-КОД</h2>
+    <p style="text-align:center;">
+      Мы очень старались сделать праздник красивым<br/>
+      и будем рады, если в своих нарядах Вы поддержите<br/>
+      цветовую гамму нашей свадьбы!
+    </p>
+  </section>
+
+  <section>
+    <h2>ДЕТАЛИ</h2>
+    <div class="icon"></div>
+  </section>
+
+  <!-- Новый опрос с напитками -->
+  <section>
+    <h2>ЧТО ВЫ ПРЕДПОЧИТАЕТЕ ПИТЬ?</h2>
+    <div class="drinks-list" style="text-align:center;">
+      <label><input type="radio" name="drink" value="vodka"> Водка</label>
+      <label><input type="radio" name="drink" value="wine"> Вино</label>
+      <label><input type="radio" name="drink" value="champagne"> Шампанское</label>
+      <label><input type="radio" name="drink" value="tequila"> Текила БУМ</label>
+      <label><input type="radio" name="drink" value="cognac"> Коньяк</label>
+      <label>Другое:<br/><input type="text" name="drink-other" placeholder="Напишите свой вариант"></label>
+    </div>
+  </section>
+
+  <script>
+    // Скрипт для анимации при прокрутке
+    const sections = document.querySelectorAll('section');
+    const onScroll = () => {
+      sections.forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      })
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>
